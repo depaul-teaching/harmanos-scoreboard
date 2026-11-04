@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scoreboard
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: scoreboard
+  template:
+    metadata:
+      labels:
+        app: scoreboard
+    spec:
+      containers:
+        - name: scoreboard-api
+          image: ghcr.io/depaul-teaching/harmanos-scoreboard/scoreboard-api:sha-30f57c7
+          ports:
+            - containerPort: 8000
+          env:
+            - name: FAVORITE_TEAM
+              value: "bears"
