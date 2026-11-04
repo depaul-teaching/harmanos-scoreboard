@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: scoreboard-api
+  labels:
+    app: scoreboard-api
+spec:
+  containers:
+    - name: scoreboard-api
+      image: ghcr.io/depaul-teaching/harmanos-scoreboard/scoreboard-api:sha-30f57c7
+      ports:
+        - containerPort: 8000
